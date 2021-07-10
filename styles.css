@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: white;
+    background-color: #070625;
+    font-family: 'Roboto Mono', monospace;
+}
+
+header {
+    padding: 2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: 5em;
+    display: flex;
+}
+
+h2.logo_plants {
+    flex: .6;
+}
+
+.plant_information {
+    display: flex;
+}
+
+.plant_image {
+    background: orange;
+    height: 600px;
+    min-width: 50%;
+}
+
+.plant-content {
+    background-color: blue;
+    min-height: 600px;
+    min-width: 50%;
+}
+
+.plant_statics {
+    background-color: green;
+    min-height: 200px;
+    width: 100%;
+}
+
+nav.nav_plants ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    flex: .4;
+    width: 100%;
+}
+
+nav.nav_plants {
+    flex: .4;
+}
+
+nav.nav_plants ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
