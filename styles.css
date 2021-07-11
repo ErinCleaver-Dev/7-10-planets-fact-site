@@ -1,6 +1,9 @@
 * {
     padding: 0;
     margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    
 }
 
 body {
@@ -18,25 +21,38 @@ header {
 
 h2.logo_plants {
     flex: 2;
+    text-transform: uppercase;
+    
 }
 
 .plant_information {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 10rem;
+    position: relative;
 }
 
 .plant_image {
-    background: orange;
-    height: 600px;
-    min-width: 50%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 3;
+    padding: 1em;
 }
 
 .plant-content {
     background-color: blue;
-    min-height: 600px;
-    min-width: 50%;
+    flex: 1;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
+.plant-content p {
+    padding-bottom: 1.5em;
+
+}
 .plant_statics {
     background-color: green;
     min-height: 200px;
@@ -63,4 +79,18 @@ nav.nav_plants ul li a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+h1.plant_name {
+    font-size: 5em;
+    padding-bottom: 0.10em;
+}
+
+#gray_text {
+    color: #b1b1b9;
+    font-weight: 700;
+}
+
+#gray_text a {
+    color: white;
 }
