@@ -16,7 +16,7 @@
 
 body {
     color: white;
-    background-color: #070625;
+    background: #070625 url(./assets/background-stars.svg);
     font-family: 'Roboto Mono', monospace;
 }
 

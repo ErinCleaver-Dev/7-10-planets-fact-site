@@ -16,12 +16,9 @@ class Plant {
     constructor() {
         this.id = 2;
         this.json = 'https://erincleaver-grcc.github.io/plant-data/data.json';
-        this.overview = document.getElementById('overview');
-        this.internal_structure = document.getElementById('internal_structure');
-        this.surface_geology = document.getElementById('surface_geology');
-        this.update_image = document.getElementById('update_image');
-        this.update_content = document.getElementById('update_content');
-        this.update_source = document.getElementById('update_source');
+        this.overview = document.querySelector('#overview');
+        this.internal_structure = document.querySelector('#internal_structure');
+        this.surface_geology = document.querySelector('#surface_geology');
     }
 
 
@@ -55,17 +52,38 @@ class Plant {
     async updateCurrentPlantInfo () {
         let resp = await fetch(this.json)
         let result = await resp.json();
-        plant_name = document.getElementById("plant_name")
-
-
+        let plant_name = document.querySelector(".plant_name")
+        for(let i = 0; i < result.length; i++) {
+            if(plant_name.textContent == result[i].name) {
+                this.updateOverview(result[i].overview.content, result[i].images.planet, result[i].overview.source);
+                this.updateInternalStructure(result[i].structure.content, result[i].images.internal, result[i].structure.source);
+                this.updateSurfaceGeology(result[i].geology.content, result[i].images.geology, result[i].geology.source);
+            }
+        }
+        
 
     }
 
-    OverView(content, img, source) {
-
+    updateOverview(content, img, source) {
+        this.updateValues(content, img, source)
     }
-    
 
+    updateInternalStructure(content, img, source) {
+        this.updateValues(content, img, source)
+    }
+    updateSurfaceGeology(content, img, source) {
+        this.updateValues(content, img, source)
+    }
+
+    updateValues(content, img, source) {
+        update_image = querySelector('#update_image');
+        update_content = document.querySelector('#ate_content');
+        update_source = document.querySelector('#update_source');
+
+        update_image = img;
+        update_content = content;
+        update_source = source;
+    }
 }
 
 
@@ -75,4 +93,5 @@ let plant = new Plant();
 
 
 plant.getPlantInfomration()
-plant.updateCurrentPlantInfo()
+
+
