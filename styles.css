@@ -3,7 +3,15 @@
     margin: 0;
     margin-block-start: 0;
     margin-block-end: 0;
-    
+    outline: none;
+}
+.logo_plants {
+    flex: 1.5;
+}
+
+.plant_image img {
+    max-width: 400px;
+    max-height: 400px;
 }
 
 body {
@@ -17,32 +25,46 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.13);
     margin-bottom: 5em;
     display: flex;
+    align-items: center;
 }
 
 h2.logo_plants {
-    flex: 2;
     text-transform: uppercase;
     
+}
+
+#hamburger {
+    visibility: hidden;
+    text-decoration: none;
+}
+
+.fa {
+    text-align: right;
+    display: block;
 }
 
 .plant_information {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 10rem;
+    margin: 0 20rem;
     position: relative;
 }
 
 .plant_image {
     min-height: 300px;
+    max-height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 3;
+    flex: 2;
     padding: 1em;
 }
 
+.plant_image img {
+    width: 100%;
+}
+
 .plant-content {
-    background-color: blue;
     flex: 1;
     min-width: 400px;
     display: flex;
@@ -52,11 +74,6 @@ h2.logo_plants {
 .plant-content p {
     padding-bottom: 1.5em;
 
-}
-.plant_statics {
-    background-color: green;
-    min-height: 200px;
-    width: 100%;
 }
 
 nav.nav_plants ul {
@@ -81,6 +98,10 @@ nav.nav_plants ul li a {
     text-transform: uppercase;
 }
 
+
+nav.nav_plants ul li:hover {
+    background-color: #454480;
+}
 h1.plant_name {
     font-size: 5em;
     padding-bottom: 0.10em;
@@ -91,6 +112,150 @@ h1.plant_name {
     font-weight: 700;
 }
 
-#gray_text a {
+#wikipedia {
     color: white;
+}
+
+button.buttons_formated {
+    background-color: #070625;
+    color: white;
+    padding: 10px;
+    border-radius: .15em;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: .7em;
+    cursor: pointer;
+}
+
+button.buttons_formated:focus {
+    background-color: #6d2ed5;
+    pointer-events: none;
+    border: none;
+    cursor: none;
+}
+
+button.buttons_formated:hover {
+    background-color: #191658;
+}
+
+.plant_statics {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 7em;
+}
+
+.static_box {
+    background-color: #070625;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    margin-left: 1.25em;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+.static_box p {
+    padding-bottom: .7em;
+    color: #b1b1b9;
+}
+
+.static_box h2 {
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 1529px) {
+
+    .logo_plants {
+        flex: 1;
+    }
+    section.plant_information {
+        margin: 0 2rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    header {
+        padding: .9em;
+    }
+
+    .plant_information {
+        flex-direction: column;
+    }
+    .plant-image {
+        flex: 1
+    }
+
+    #hamburger {
+
+        visibility: visible;
+        color: white;
+        font-size: 1.5em;
+        align-self: left;
+    }
+
+    ul#nav_hamburger { 
+        display: none;
+        position: absolute;
+        max-width: 100%;
+        top: 60px;
+        flex-direction: column;
+        z-index: 1;
+        flex: .7;
+        background-color: #242357;
+    }
+
+    ul#nav_hamburger li {
+        padding: .5em;
+        border-bottom: 1px solid white;
+    } 
+    ul#nav_hamburger li:last-child {
+        border-bottom: none;
+    } 
+    
+  
+    .static_box {
+        margin: .7em;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    header {
+        margin-bottom: .5em;
+        padding: .5em;
+    }
+
+    section.plant_information {
+        margin: 0 .5rem;
+    }
+
+    .plant_image {
+        flex: 1;
+        padding: .5em;
+    }
+
+    ul#nav_hamburger { 
+        top: 47px;
+    }
+
+    .hamburger {
+        margin-left: 0; 
+
+    }
+    h2.logo_plants {
+        flex: 1;
+    }
+    .plant-content { 
+        min-width: 100px;
+    }
+    .plant_statics {
+        flex-direction: column;
+        margin-top: .5em;
+    }
+
+    
+
 }

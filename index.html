@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Planets fact site</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <title>Frontend Mentor | Planets fact site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
     <header>
         <h2 class="logo_plants">The Plants</h2>
+
         <nav class="nav_plants"> 
-            <ul>
-                <li><a href="" id="mars">Mercury</a></li>
-                <li><a href="" id="earth">Venus</a></li>
-                <li><a href="" id="jupiter">Earth</a></li>
-                <li><a href="" id="earth">Jupiter</a></li>
+            <a href="javascript:void(0)" id="hamburger" class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="nav_hamburger">
+                <li><a href="" id="mercury">Mercury</a></li>
+                <li><a href="" id="venus">Venus</a></li>
+                <li><a href="" id="earth">Earth</a></li>
+                <li><a href="" id="mars">Mars</a></li>
+                <li><a href="" id="jupiter">Jupiter</a></li>
                 <li><a href="" id="saturn">Saturn</a></li>
                 <li><a href="" id="uranus">Uranus</a> </li>
                 <li><a href="" id="neptune">Neptune</a> </li>
@@ -29,31 +34,60 @@
         </nav>
     </header>   
     <main class="current_plant">
-    
-        <section class="plant_information">
-            <div class="plant_image">
-                <img src="./assets/planet-earth.svg">
-            </div>
-            <div class="plant-content">
-                <h1 class="plant_name">Earth</h1>
-                <p>
-                Third planet from the Sun and the only known planet to harbor life. 
-                About 29.2% of Earth's surface is land with remaining 70.8% is 
-                covered with water. Earth's distance from the Sun, physical properties 
-                and geological history have allowed life to evolve and thrive.
-                </p>
-                <p>
-                <span id="gray_text">Source: </span> <a href="https://en.wikipedia.org/wiki/Earth#Surface">Wikipedia</a> <img src="./assets/icon-source.svg">
-                </p>
-                <button class="buttons_formated" id="overview" autofocus><span>01</span> Overview</button> 
-                <button class="buttons_formated" id="internal_structure" autofocus><span>02</span> Internal Structure</button> 
-                <button class="buttons_formated" id="surface_geology" autofocus><span>03</span> Surface Geology</button> 
-            </div>
-        </section>
-        <section class="plant_statics">
-        </section>
     </main>
+    <script id="selected_plant" type="text/x-handlebars-template">
+        <section class="plant_information">
+                <div class="plant_image">
+                    <img id="update_image" src="{{images.planet}}">
+                </div>
+                <div class="plant-content">
+                    <h1 class="plant_name">{{name}}</h1>
+                    <p id="update_content">
+                    {{overview.content}}
+                    <p>
+                    <span id="gray_text">Source: </span> <a id="wikipedia" id="update_source" href="{{overview.source}}">Wikipedia</a> <img src="./assets/icon-source.svg">
+                    </p>
+                    <button class="buttons_formated" id="overview" autofocus><span>01</span> Overview</button> 
+                    <button class="buttons_formated" id="internal_structure"><span>02</span> Internal Structure</button> 
+                    <button class="buttons_formated" id="surface_geology"><span>03</span> Surface Geology</button> 
+                </div>
+            </section>
+            <section class="plant_statics">
+                <div class="static_box">
+                    <p>Rotation Time</p>
+                    <h2>
+                    {{rotation}}
+                    </h2>
+                </div>
+                <div class="static_box">
+                    <p>
+                        Revolution Time
+                    </p>
+                    <h2>{{revolution}}</h2>
+                </div>
+                <div class="static_box">
+                    <p>
+                        Radius
+                    </p>
+                    <h2>
+                        {{radius}}
+                    </h2>
+                </div>
+                <div class="static_box">
+                    <p>
+                        Average Temp
+                    </p>
+                    <h2>
+                        {{temperature}}
+                    </h2>
+                </div>
+            </section>
+    </script>
 
+
+
+
+    <script src="./javascript.js"></script>
 
 
 </body>
