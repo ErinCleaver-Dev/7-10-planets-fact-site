@@ -52,37 +52,36 @@ class Plant {
     async updateCurrentPlantInfo () {
         let resp = await fetch(this.json)
         let result = await resp.json();
-        let plant_name = document.querySelector(".plant_name")
+        let current_plant =document.querySelector(".current_plant");
+        console.log(current_plant);
         for(let i = 0; i < result.length; i++) {
-            if(plant_name.textContent == result[i].name) {
-                this.updateOverview(result[i].overview.content, result[i].images.planet, result[i].overview.source);
-                this.updateInternalStructure(result[i].structure.content, result[i].images.internal, result[i].structure.source);
-                this.updateSurfaceGeology(result[i].geology.content, result[i].images.geology, result[i].geology.source);
-            }
+            current_plant.addEventListener("click", (event) => {
+            event.preventDefault();            
+            console.log()
+
+            if(current_plant.querySelector('.plant_name').innerText === result[i].name) {
+                console.log('texting querySelector')
+                
+                if(event.target.querySelector('#overview').id) {
+                this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
+                } else if(event.target.querySelector('#internal_structure').id == 'internal_structure') {
+                    console.log('test')
+                    this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
+                } else if(event.target.querySelector('#surface_geology').id == 'surface_geology') {
+                    this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
+                }}
+            })
         }
         
 
     }
 
-    updateOverview(content, img, source) {
-        this.updateValues(content, img, source)
-    }
 
-    updateInternalStructure(content, img, source) {
-        this.updateValues(content, img, source)
-    }
-    updateSurfaceGeology(content, img, source) {
-        this.updateValues(content, img, source)
-    }
+    updateValues(content, img, source, current_plant) {
+        current_plant.querySelector('#wikipedia').href = source;
+        current_plant.querySelector('#update_content').textContent = content;
+        current_plant.querySelector('#update_image').src = img;
 
-    updateValues(content, img, source) {
-        update_image = querySelector('#update_image');
-        update_content = document.querySelector('#ate_content');
-        update_source = document.querySelector('#update_source');
-
-        update_image = img;
-        update_content = content;
-        update_source = source;
     }
 }
 
@@ -93,5 +92,4 @@ let plant = new Plant();
 
 
 plant.getPlantInfomration()
-
-
+ plant.updateCurrentPlantInfo()

@@ -153,6 +153,7 @@ button.buttons_formated:hover {
     margin-left: 1.25em;
     padding: 1em;
     text-transform: uppercase;
+    min-width: 200px;
 }
 
 .static_box p {
