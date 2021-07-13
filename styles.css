@@ -116,8 +116,8 @@ h1.plant_name {
     color: white;
 }
 
-button.buttons_formated {
-    background-color: #070625;
+a.buttons_formated {
+    background-color: hsl(242, 72%, 8%);
     color: white;
     padding: 10px;
     border-radius: .15em;
@@ -129,7 +129,7 @@ button.buttons_formated {
     cursor: pointer;
 }
 
-button.buttons_formated:focus {
+a.buttons_formated:focus {
     background-color: #6d2ed5;
     pointer-events: none;
     border: none;

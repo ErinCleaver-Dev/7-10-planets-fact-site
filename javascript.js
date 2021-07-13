@@ -58,17 +58,19 @@ class Plant {
 
             if(current_plant.querySelector('.plant_name').innerText === result[i].name) {
                 console.log('texting querySelector')
-                console.log(document.querySelector('#internal_structure'))
-                document.querySelector('#overview').addEventListener("click", (event) => {
+
+
+                document.querySelector('#overview').addEventListener("click", event => {
                     event.preventDefault();
                     console.log('test button 1')
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })
-                document.querySelector('#internal_structure').addEventListener("click", (event) => {
+                document.querySelector('#internal_structure').addEventListener("click", event => {
+                    event.preventDefault();
                     console.log('test button 2')
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
                 })
-                document.querySelector('#surface_geology').addEventListener("click", (event) => {
+                document.querySelector('#surface_geology').addEventListener("click", event => {
                     console.log('test button 3')
                     event.preventDefault();
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
@@ -82,6 +84,7 @@ class Plant {
 
 
     updateValues(content, img, source, current_plant) {
+        
         current_plant.querySelector('#wikipedia').href = source;
         current_plant.querySelector('#update_content').textContent = content;
         current_plant.querySelector('#update_image').src = img;
@@ -96,4 +99,4 @@ let plant = new Plant();
 
 
 plant.getPlantInfomration()
- plant.updateCurrentPlantInfo()
+plant.updateCurrentPlantInfo()
