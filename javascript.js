@@ -55,22 +55,26 @@ class Plant {
         let current_plant =document.querySelector(".current_plant");
         console.log(current_plant);
         for(let i = 0; i < result.length; i++) {
-            current_plant.addEventListener("click", (event) => {
-            event.preventDefault();            
-            console.log()
 
             if(current_plant.querySelector('.plant_name').innerText === result[i].name) {
                 console.log('texting querySelector')
-                
-                if(event.target.querySelector('#overview').id) {
-                this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
-                } else if(event.target.querySelector('#internal_structure').id == 'internal_structure') {
-                    console.log('test')
+                console.log(document.querySelector('#internal_structure'))
+                document.querySelector('#overview').addEventListener("click", (event) => {
+                    event.preventDefault();
+                    console.log('test button 1')
+                    this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
+                })
+                document.querySelector('#internal_structure').addEventListener("click", (event) => {
+                    console.log('test button 2')
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
-                } else if(event.target.querySelector('#surface_geology').id == 'surface_geology') {
+                })
+                document.querySelector('#surface_geology').addEventListener("click", (event) => {
+                    console.log('test button 3')
+                    event.preventDefault();
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
-                }}
-            })
+                });
+            }
+       
         }
         
 
