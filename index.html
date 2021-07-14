@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -34,11 +35,12 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        
     </script>
  
     <header>
         <h2 class="logo_plants">The Plants</h2>
-
+        <button type="submit" class="login" name="Login">Login</button>
         <nav class="nav_plants"> 
             <a href="javascript:void(0)" id="hamburger" class="icon">
                 <i class="fa fa-bars"></i>
@@ -57,6 +59,18 @@
     </header>   
     <main class="current_plant">
     </main>
+
+    <div class="message_box">
+        <button type="submit" id="google_login"><i class="fab fa-google"></i> Google_login</button>
+        <form>    
+            <input type="text" id="username">
+            <input type="password" id="password">
+            <button id="login">Login</button>
+        </form>
+        
+    </div>
+
+     
     <script id="selected_plant" type="text/x-handlebars-template">
         <section class="plant_information">
                 <div class="plant_image">
@@ -105,7 +119,117 @@
                 </div>
             </section>
     </script>
+    <script>
+
+     
+    login_box = document.querySelector('.message_box');
+
+        function toggleMessage(message) {
+
+            login_box.style.display = "flex";
+            login_box.innerHTML = message;
+            document.getElementById("click_ok").addEventListener("click", () => {
+            login_box.style.display = "none";
+            })
+
+        }
+
+     document.querySelector(".login").addEventListener("click", (event) => {
+        var password = "UnSecure478"
+        var email = "email@fakeemail.com"
+        login_box.style.display = "flex";
+        /* firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+            // Signed in 
+           
+            toggleMessage("User Created!");
+            var user = userCredential.user;
+            // ...
+            })
+            .catch((error) => {
+            console.log("Falied to create account")
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            toggleMessage("Failed to Create User!" + errorMessage);
+
+            // ..
+        });*/
+        
+        /* firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+            console.log(JSON.stringify(user))
+                alert(user.email)
+              //  location.href = "https://google.com"
+                // ...
+            })
+            .catch((error) => {
+                console.log("Falied to sign in")
+                var errorCode = error.code;
+                var errorMessage = error.message;
+            });*/
+                let google_login = document.querySelector("#google_login");
+                console.log(google_login)
+                document.getElementById("google_login").addEventListener("click", () => {
+                    var provider = new firebase.auth.GoogleAuthProvider();
+
+                    firebase.auth()
+                    .signInWithPopup(provider)
+                    .then((result) => {
+                        /** @type {firebase.auth.OAuthCredential} */
+                        console.log("testing button")
+                        var credential = result.credential;
+
+                        // This gives you a Google Access Token. You can use it to access the Google API.
+                        var token = credential.accessToken;
+                        // The signed-in user info.
+                        var user = result.user;
+                        toggleMessage("Your already signed into the account" + "<button id='logout'>Logout</button>"+"<button id='click_ok'>Ok</button>");
+                        console.log(message_box)
+
+                        // ...
+                    }).catch((error) => {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // The email of the user's account used.
+                        var email = error.email;
+                        // The firebase.auth.AuthCredential type that was used.
+                        var credential = error.credential;
+                    
+                        
+                        // ...
+                    });
+                })
+            
+                console.log(message_box)
+           
+        
+
+
+        })
+                        message_box = document.querySelector(".message_box")
+
+        document.querySelector("#logout").addEventListener("click", () => {
+            console.log("testing button 2")
+
+            console.log('testing')
+            firebase.auth().signOut().then(() => {
+            login_box.style.display = "none";
+
+            toggleMessage('<button type="submit" id="goolgle_login"><i class="fab fa-google"></i> Google_login</button><form><input type="text" id="username"><input type="password" id="password"><button id="login">Login</button></form>'); 
+            
+            
+                            // Sign-out successful.
+            }).catch((error) => {
+            // An error happened.
+            });
+        })
     
+
+    </script>
     
   
 

@@ -8,10 +8,49 @@
 .logo_plants {
     flex: 1.5;
 }
+.login {
+    width: 70px;
+    height: 50px;
+    font-size: 1.5em;
+    flex: .1;
+}
 
 .plant_image img {
     max-width: 400px;
     max-height: 400px;
+}
+
+.message_box {
+    display: none;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    top: 20%;
+    left: 50%;
+    z-index: 1;
+    background-color: rgb(34, 51, 107);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px black;
+
+}
+.message_box p {
+    padding-bottom: 10px;
+}
+
+.message_box input {
+    margin: 10px;
+    width: 90%;
+}
+
+.message_box button {
+    width: 90%;
+    margin: 10px;
+    padding: 5px;
+    background-color: #070625;
+    color: white;
 }
 
 body {
