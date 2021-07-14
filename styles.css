@@ -137,7 +137,7 @@ a.buttons_formated:focus {
     cursor: none;
 }
 
-button.buttons_formated:hover {
+a.buttons_formated:hover {
     background-color: #191658;
 }
 
