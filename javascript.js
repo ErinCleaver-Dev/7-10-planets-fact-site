@@ -61,18 +61,18 @@ class Plant {
 
 
                 document.querySelector('#overview').addEventListener("click", event => {
-                    event.preventDefault();
                     console.log('test button 1')
+                    document.querySelector('#overview').focus();
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })
                 document.querySelector('#internal_structure').addEventListener("click", event => {
-                    event.preventDefault();
                     console.log('test button 2')
+                    document.querySelector('#overview').focus();
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
                 })
                 document.querySelector('#surface_geology').addEventListener("click", event => {
                     console.log('test button 3')
-                    event.preventDefault();
+                    document.querySelector('#overview').focus();
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
                 });
             }
