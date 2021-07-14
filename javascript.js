@@ -27,7 +27,6 @@ class Plant {
         let result = await resp.json();
         
         current_plant.innerHTML = selected_plant(result[this.id]);
-        
         for(let i = 0; i < links.length; i++) {
             let link = document.getElementById(links[i].id)
             link.addEventListener('click', (event) => {
@@ -53,19 +52,15 @@ class Plant {
         for(let i = 0; i < result.length; i++) {
 
             if(current_plant.querySelector('.plant_name').innerText === result[i].name) {
-                console.log('texting querySelector')
 
 
                 document.querySelector('#overview').addEventListener("click", () => {
-                    console.log('test button 1')
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })
                 document.querySelector('#internal_structure').addEventListener("click", () => {
-                    console.log('test button 2')
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
                 })
                 document.querySelector('#surface_geology').addEventListener("click", () => {
-                    console.log('test button 3')
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
                 });
             }
