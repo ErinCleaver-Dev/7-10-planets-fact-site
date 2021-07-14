@@ -42,7 +42,8 @@ class Plant {
                 console.log(result[i])
             }
         }
-        
+        document.querySelector('#overview').focus();
+
         console.log(this.id)
     }
 
@@ -57,19 +58,19 @@ class Plant {
                 console.log('texting querySelector')
 
 
-                document.querySelector('#overview').addEventListener("click", event => {
+                document.querySelector('#overview').addEventListener("click", () => {
                     console.log('test button 1')
                     document.querySelector('#overview').focus();
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })
-                document.querySelector('#internal_structure').addEventListener("click", event => {
+                document.querySelector('#internal_structure').addEventListener("click", () => {
                     console.log('test button 2')
-                    document.querySelector('#overview').focus();
+                    document.querySelector('#internal_structure').focus();
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
                 })
-                document.querySelector('#surface_geology').addEventListener("click", event => {
+                document.querySelector('#surface_geology').addEventListener("click", () => {
                     console.log('test button 3')
-                    document.querySelector('#overview').focus();
+                    document.querySelector('#surface_geology').focus();
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
                 });
             }
