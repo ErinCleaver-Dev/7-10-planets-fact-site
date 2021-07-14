@@ -116,7 +116,7 @@ h1.plant_name {
     color: white;
 }
 
-a.buttons_formated {
+div.buttons_formated {
     background-color: hsl(242, 72%, 8%);
     color: white;
     padding: 10px;
@@ -130,14 +130,14 @@ a.buttons_formated {
     text-decoration: none;
 }
 
-a.buttons_formated:focus {
+div.buttons_formated:focus {
     background-color: #6d2ed5;
     pointer-events: none;
     border: none;
     cursor: none;
 }
 
-a.buttons_formated:hover {
+div.buttons_formated:hover {
     background-color: #191658;
 }
 
