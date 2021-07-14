@@ -35,6 +35,7 @@ class Plant {
                 if(link.textContent == result[i].name) {
                     current_plant.innerHTML = selected_plant(result[i]);
                     this.id = i;
+                    this.updateCurrentPlantInfo()
                 }
     
             })
@@ -42,15 +43,12 @@ class Plant {
                 console.log(result[i])
             }
         }
-        document.querySelector('#overview').focus();
-
-        console.log(this.id)
     }
 
     async updateCurrentPlantInfo () {
         let resp = await fetch(this.json)
         let result = await resp.json();
-        let current_plant =document.querySelector(".current_plant");
+        let current_plant=document.querySelector(".current_plant");
         console.log(current_plant);
         for(let i = 0; i < result.length; i++) {
 
@@ -60,17 +58,14 @@ class Plant {
 
                 document.querySelector('#overview').addEventListener("click", () => {
                     console.log('test button 1')
-                    document.querySelector('#overview').focus();
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })
                 document.querySelector('#internal_structure').addEventListener("click", () => {
                     console.log('test button 2')
-                    document.querySelector('#internal_structure').focus();
                     this.updateValues(result[i].structure.content, result[i].images.internal, result[i].structure.source, current_plant);
                 })
                 document.querySelector('#surface_geology').addEventListener("click", () => {
                     console.log('test button 3')
-                    document.querySelector('#surface_geology').focus();
                     this.updateValues(result[i].geology.content, result[i].images.geology, result[i].geology.source, current_plant);
                 });
             }
