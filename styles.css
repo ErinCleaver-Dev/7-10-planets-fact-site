@@ -52,7 +52,6 @@ h2.logo_plants {
 
 .plant_image {
     min-height: 300px;
-    max-height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,9 +142,9 @@ div.buttons_formated:hover {
 
 .plant_statics {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: 7em;
+    margin-top: 30px;
 }
 
 .static_box {
@@ -230,10 +229,26 @@ div.buttons_formated:hover {
         padding: .5em;
     }
 
+    main {
+        margin-top: 100px;
+    }
+
+
+    .plant-content {
+        margin: 0 10px;
+    }
+    
+    .plant_image {
+        margin-bottom: 100px;
+        
+    }
     section.plant_information {
         margin: 0 .5rem;
     }
 
+    .plant-content {
+        margin-left: 10px;
+    }
     .plant_image {
         flex: 1;
         padding: .5em;

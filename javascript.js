@@ -52,8 +52,6 @@ class Plant {
         for(let i = 0; i < result.length; i++) {
 
             if(current_plant.querySelector('.plant_name').innerText === result[i].name) {
-
-
                 document.querySelector('#overview').addEventListener("click", () => {
                     this.updateValues(result[i].overview.content, result[i].images.planet, result[i].overview.source, current_plant);
                 })

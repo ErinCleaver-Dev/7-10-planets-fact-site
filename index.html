@@ -13,7 +13,29 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <!-- Firebase auth-->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <!-- Firebase store -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCrlaVF0J1bdtyvYqxvAfDcGQiZitrIjP4",
+            authDomain: "cp-ecleaver.firebaseapp.com",
+            projectId: "cp-ecleaver",
+            storageBucket: "cp-ecleaver.appspot.com",
+            messagingSenderId: "10020596347",
+            appId: "1:10020596347:web:d615f6d072e4cc15f410de"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+ 
     <header>
         <h2 class="logo_plants">The Plants</h2>
 
@@ -83,9 +105,9 @@
                 </div>
             </section>
     </script>
-
-
-
+    
+    
+  
 
     <script src="./javascript.js"></script>
 
