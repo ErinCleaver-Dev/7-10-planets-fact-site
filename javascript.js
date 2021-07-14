@@ -16,9 +16,6 @@ class Plant {
     constructor() {
         this.id = 2;
         this.json = 'https://erincleaver-grcc.github.io/plant-data/data.json';
-        this.overview = document.querySelector('#overview');
-        this.internal_structure = document.querySelector('#internal_structure');
-        this.surface_geology = document.querySelector('#surface_geology');
     }
 
 
