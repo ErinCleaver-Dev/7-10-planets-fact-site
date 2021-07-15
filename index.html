@@ -61,7 +61,7 @@
     </main>
 
     <div class="message_box">
-        <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google_login</div>
+        <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google login</div>
     </div>
 
      
@@ -172,11 +172,11 @@
 
 
         })
-                        message_box = document.querySelector(".message_box")
+        message_box = document.querySelector(".message_box")
 
         document.addEventListener("click", (event) => {
             if(event.target && event.target.id == 'logout') {
-                toggleMessage(' <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google_login</div>'); 
+                toggleMessage(' <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google login</div>'); 
                 login_box.style.display = "none";
                 console.log('testing')
                 firebase.auth().signOut().then(() => {           
