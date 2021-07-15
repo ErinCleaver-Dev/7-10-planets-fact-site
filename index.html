@@ -61,13 +61,7 @@
     </main>
 
     <div class="message_box">
-        <button type="submit" id="google_login"><i class="fab fa-google"></i> Google_login</button>
-        <form>    
-            <input type="text" id="username">
-            <input type="password" id="password">
-            <button id="login">Login</button>
-        </form>
-        
+        <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google_login</div>
     </div>
 
      
@@ -170,10 +164,28 @@
                 var errorCode = error.code;
                 var errorMessage = error.message;
             });*/
-                let google_login = document.querySelector("#google_login");
-                console.log(google_login)
-                document.getElementById("google_login").addEventListener("click", () => {
-                    var provider = new firebase.auth.GoogleAuthProvider();
+                
+            
+                console.log(message_box)
+           
+        
+
+
+        })
+                        message_box = document.querySelector(".message_box")
+
+        document.addEventListener("click", (event) => {
+            if(event.target && event.target.id == 'logout') {
+                toggleMessage(' <div class="buttons_formated" id="google_login"><i class="fab fa-google"></i> Google_login</div>'); 
+                login_box.style.display = "none";
+                console.log('testing')
+                firebase.auth().signOut().then(() => {           
+                            // Sign-out successful.
+            }).catch((error) => {
+            // An error happened.
+            });
+            } else if(event.target && event.target.id == 'google_login') {
+                  var provider = new firebase.auth.GoogleAuthProvider();
 
                     firebase.auth()
                     .signInWithPopup(provider)
@@ -186,7 +198,7 @@
                         var token = credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
-                        toggleMessage("Your already signed into the account" + "<button id='logout'>Logout</button>"+"<button id='click_ok'>Ok</button>");
+                        toggleMessage("Your already signed into the account" + "<div class='buttons_formated' id='logout'>Logout</div>"+"<div class='buttons_formated' id='click_ok'>Ok</div>");
                         console.log(message_box)
 
                         // ...
@@ -202,30 +214,9 @@
                         
                         // ...
                     });
-                })
-            
-                console.log(message_box)
-           
-        
+            } 
 
 
-        })
-                        message_box = document.querySelector(".message_box")
-
-        document.querySelector("#logout").addEventListener("click", () => {
-            console.log("testing button 2")
-
-            console.log('testing')
-            firebase.auth().signOut().then(() => {
-            login_box.style.display = "none";
-
-            toggleMessage('<button type="submit" id="goolgle_login"><i class="fab fa-google"></i> Google_login</button><form><input type="text" id="username"><input type="password" id="password"><button id="login">Login</button></form>'); 
-            
-            
-                            // Sign-out successful.
-            }).catch((error) => {
-            // An error happened.
-            });
         })
     
 
