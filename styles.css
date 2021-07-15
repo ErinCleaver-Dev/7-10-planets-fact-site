@@ -167,6 +167,7 @@ div.buttons_formated {
     margin-bottom: .7em;
     cursor: pointer;
     text-decoration: none;
+    cursor: pointer;
 }
 
 div.buttons_formated:focus {
